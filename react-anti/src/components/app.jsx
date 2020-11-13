@@ -17,6 +17,7 @@ export default class App extends Component{
 
         return(
             <div id='app'>
+                <div>实验</div>
                 <Header></Header>
                 <div style={{display:"flex"}}>
                     <LeftBar></LeftBar>
