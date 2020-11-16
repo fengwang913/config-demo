@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
 // import { BrowserRouter as Router,Link,Route ,Redirect/* , Link  */ } from 'react-router-dom'
-
+import {withRouter} from 'react-router-dom'
 import { Menu, Button} from 'antd';
 import {
     AppstoreOutlined,
@@ -16,7 +16,13 @@ const { SubMenu } = Menu;
 export default class LeftBar extends Component{
   constructor(props){
     super(props)
+    console.log(this.props)
+ 
   }
+  componentDidMount() {
+    console.log('1567',this.props);
+}
+ 
     state = {
         collapsed: false,
 
@@ -27,11 +33,14 @@ export default class LeftBar extends Component{
         });
       };
 
-   
+      // componentWillReceiveProps(props) {
+      //   console.log(thisprops)
+      // }
 
       _handleClick = (e) => {
-        console.log(e)
-        // this.props.history.push(`/${e.key}`)
+        console.log('2222',e)
+        console.log('1111',this.props)
+ 
       }
 
     render(){
