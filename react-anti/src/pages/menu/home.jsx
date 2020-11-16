@@ -288,16 +288,15 @@ const EditableTable = () => {
 };
 
 
-
-
-
-export default class ModRTU extends Component{
+export default class Home extends Component{
+    constructor(props){
+        super(props)
+        console.log('是在home页里面额',props)
+    }
     render(){
 
         return(
-            <div>
-                <EditableTable />
-            </div>
+            <EditableTable />
         )
     }
 
