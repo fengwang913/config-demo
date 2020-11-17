@@ -1,5 +1,5 @@
 import React,{ Component ,useState}  from 'react';
-import { Table,InputNumber, Popconfirm, Form } from 'antd';
+import { Table, Popconfirm, Form } from 'antd';
 import { Select } from 'antd';
 
 // const originData = [];
@@ -9,26 +9,40 @@ const { Option } = Select;
   const originData = [];
   originData.push({
       key:'01',
-      IP:'134',
-      port:'1',
-      slaveId:'123',
-      funcCode:'Read Coils',
-      Addre:'24',
-      mappinAddre:'1',
-      number:'19200',
-      timeout:'320'
-    
+      IP:'1',
+      Gateway:'2',
+      Mask:'1',
   },{
     key:'02',
-    IP:'256',
-    port:'1',
-    slaveId:'123',
-    funcCode:'Read Coils',
-    Addre:'24',
-    mappinAddre:'1',
-    number:'19200',
-    timeout:'320'
-},)
+    IP:'2',
+    Gateway:'2',
+    Mask:'1',
+},
+)
+
+// const SelectBaud =  <Select style={{ width: 80 }}>
+//                         <Option value="19200"> 19200</Option>
+//                         <Option value="115200"> 115200</Option>
+//                     </Select>
+
+// const SelectParity =  <Select style={{ width: 80 }}>
+//                             <Option value="None"> None</Option>
+//                             <Option value="Odd"> Odd</Option>
+//                             <Option value="Even"> Even</Option>
+//                      </Select>
+// const SelectStop =  <Select style={{ width: 80 }}>
+//                         <Option value="0"> 0</Option>
+//                         <Option value="1"> 1</Option>
+//                     </Select>
+// const SelectData =  <Select style={{ width: 80 }}>
+//                         <Option value="7"> 7</Option>
+//                         <Option value="8"> 8</Option>
+//                     </Select>
+
+// const SelectType =  <Select style={{ width: 80 }}>
+//                         <Option value="7"> 7</Option>
+//                         <Option value="8"> 8</Option>
+//                     </Select>   
 
 
 //单元格的格式以及规则的限定
@@ -43,17 +57,12 @@ const EditableCell = ({
   ...restProps
 }) => {
  
-  const inputNode =inputType === 'funcCode' ? <Select style={{ width: 180 }}>
-                                                  <Option value="Read Coils"> Read Coils</Option>
-                                                  <Option value="Read Discreate Inputs"> Read Discreate Inputs</Option>
-                                                  <Option value="Read Holding Registers"> Read Holding Registers</Option>
-                                                  <Option value="Read Input Registers"> Read Input Registers</Option>
-                                                  <Option value="Write Coil"> Write Coil</Option>
-                                                  <Option value="Write Register"> Write Register</Option>
-                                                  <Option value="Write Coils"> Write Coils</Option>
-                                                  <Option value="Write Registers"> Write Registers</Option>
-                                              </Select> 
-                                              :<InputNumber />;
+  const inputNode =  <Select style={{ width: 80 }}>
+                                                <Option value="19200"> 19200</Option>
+                                                <Option value="115200"> 115200</Option>
+                     </Select>
+                   
+
 
   return (
     <td {...restProps}>
@@ -95,13 +104,8 @@ const EditableTable = () => {
   const edit = (record) => {
     form.setFieldsValue({
         IP:'',
-        port:'',
-        slaveId:'',
-        funcCode:'',
-        Addre:'',
-        mappinAddre:'',
-        number:'',
-        timeout:'',
+        Gateway:'',
+        Mask:'',
       ...record,
     });
     setEditingKey(record.key);
@@ -136,52 +140,21 @@ const EditableTable = () => {
   //画table
   const columns = [
     {
-        title: 'IP',
-        dataIndex: 'IP',
-        width: '8%',
-        editable: false,
-      },
-    {
-      title: '串口',
-      dataIndex: 'port',
-      width: '8%',
+      title: 'IP',
+      dataIndex: 'IP',
+      width: '25%',
       editable: false,
     },
     {
-        title: 'Slave ID',
-        dataIndex: 'slaveId',
-        width: '8%',
-        editable: false,
-      },
-    {
-      title: '功能码',
-      dataIndex: 'funcCode',
-      width: '20%',
-      editable: true,
+      title: 'Gateway',
+      dataIndex: 'Gateway',
+      width: '25%',
+      editable: false,
     },
-    
-      {
-        title: '地址',
-        dataIndex: 'Addre',
-        width: '10%',
-        editable: true,
-      },
-      {
-        title: '映射地址',
-        dataIndex: 'mappinAddre',
-        width: '10%',
-        editable: true,
-      },
-      {
-        title: '数量',
-        dataIndex: 'number',
-        width: '10%',
-        editable: true,
-      },
-      {
-        title: '响应时间',
-        dataIndex: 'timeout',
-        width: '10%',
+    {
+        title: 'Mask',
+        dataIndex: 'Mask',
+        width: '25%',
         editable: true,
       },
     {
@@ -200,7 +173,7 @@ const EditableTable = () => {
             >
               保存
             </a>
-            <Popconfirm title="取消编辑？" onConfirm={cancel}>
+            <Popconfirm title="Sure to cancel?" onConfirm={cancel}>
               <a>取消</a>
             </Popconfirm>
           </span>
@@ -252,19 +225,15 @@ const EditableTable = () => {
 };
 
 
-
-  
-
-
-
-
-
-export default class ModTCP extends Component{
+export default class NetworkCon extends Component{
+    constructor(props){
+        super(props)
+        console.log('是在NetworkCon页里面额',props)
+    }
     render(){
 
         return(
             <EditableTable />
-           
         )
     }
 

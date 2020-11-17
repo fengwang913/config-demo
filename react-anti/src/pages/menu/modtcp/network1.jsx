@@ -9,26 +9,43 @@ const { Option } = Select;
   const originData = [];
   originData.push({
       key:'01',
-      IP:'134',
-      port:'1',
-      slaveId:'123',
+      IP:'1',
       funcCode:'Read Coils',
       Addre:'24',
       mappinAddre:'1',
       number:'19200',
-      timeout:'320'
     
   },{
     key:'02',
-    IP:'256',
-    port:'1',
-    slaveId:'123',
-    funcCode:'Read Coils',
-    Addre:'24',
+    port:'2',
+    funcCode:'Read Discreate Inputs',
+    Addre:'56',
     mappinAddre:'1',
     number:'19200',
-    timeout:'320'
-},)
+},
+{
+    key:'03',
+    port:'3',
+    funcCode:'Read Holding Registers',
+    Addre:'23',
+    mappinAddre:'1',
+    number:'19200',
+},
+{
+    key:'04',
+    port:'4',
+    funcCode:'Read Input Registers',
+    Addre:'98',
+    mappinAddre:'1',
+    number:'19200',
+},{
+    key:'05',
+    port:'5',
+    funcCode:'Write Coil',
+    Addre:'200',
+    mappinAddre:'1',
+    number:'19200',
+})
 
 
 //单元格的格式以及规则的限定
@@ -94,14 +111,11 @@ const EditableTable = () => {
 
   const edit = (record) => {
     form.setFieldsValue({
-        IP:'',
-        port:'',
-        slaveId:'',
-        funcCode:'',
-        Addre:'',
-        mappinAddre:'',
-        number:'',
-        timeout:'',
+      port:'',
+      funcCode:'',
+      Addre:'',
+      mappinAddre:'',
+      number:'',
       ...record,
     });
     setEditingKey(record.key);
@@ -136,52 +150,34 @@ const EditableTable = () => {
   //画table
   const columns = [
     {
-        title: 'IP',
-        dataIndex: 'IP',
-        width: '8%',
-        editable: false,
-      },
-    {
       title: '串口',
       dataIndex: 'port',
-      width: '8%',
+      width: '10%',
       editable: false,
     },
     {
-        title: 'Slave ID',
-        dataIndex: 'slaveId',
-        width: '8%',
-        editable: false,
-      },
-    {
       title: '功能码',
       dataIndex: 'funcCode',
-      width: '20%',
+      width: '25%',
       editable: true,
     },
     
       {
         title: '地址',
         dataIndex: 'Addre',
-        width: '10%',
+        width: '15%',
         editable: true,
       },
       {
         title: '映射地址',
         dataIndex: 'mappinAddre',
-        width: '10%',
+        width: '15%',
         editable: true,
       },
       {
         title: '数量',
         dataIndex: 'number',
-        width: '10%',
-        editable: true,
-      },
-      {
-        title: '响应时间',
-        dataIndex: 'timeout',
-        width: '10%',
+        width: '15%',
         editable: true,
       },
     {
@@ -259,7 +255,7 @@ const EditableTable = () => {
 
 
 
-export default class ModTCP extends Component{
+export default class Network1 extends Component{
     render(){
 
         return(

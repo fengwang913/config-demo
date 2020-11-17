@@ -2,6 +2,9 @@ import React,{ Component } from 'react';
 // import { BrowserRouter as Router,Link,Route ,Redirect/* , Link  */ } from 'react-router-dom'
 // import {withRouter} from 'react-router-dom'
 import { Menu, Button} from 'antd';
+
+import {createBrowserHistory} from "history";
+
 import {
     // AppstoreOutlined,
     MenuUnfoldOutlined,
@@ -12,11 +15,14 @@ import {
     MailOutlined,
   } from '@ant-design/icons';
 
+let history = createBrowserHistory()
+
 const { SubMenu } = Menu;
 export default class LeftBar extends Component{
   constructor(props){
     super(props)
     console.log(' constructor',this.props)
+    
  
   }
   componentDidMount() {
@@ -39,7 +45,11 @@ export default class LeftBar extends Component{
 
       _handleClick = (e) => {
         console.log('2222',e)
+        console.log('aaaaaaaaaaaaa',history)
         console.log('1111',this.props)
+        history.push(`/${e.key}`);
+        history.go();
+
  
       }
 
@@ -89,7 +99,7 @@ export default class LeftBar extends Component{
               <Menu.Item key="zigbee" icon={<ContainerOutlined />}>
                  Zigbee
               </Menu.Item>
-              <Menu.Item key="devive realtime" icon={<ContainerOutlined />}>
+              <Menu.Item key="device realtime" icon={<ContainerOutlined />}>
                  Device Realtime Status 
               </Menu.Item>
 
@@ -98,7 +108,7 @@ export default class LeftBar extends Component{
                 <Menu.Item key="ios">IOS</Menu.Item>
               </SubMenu>
    
-              <Menu.Item key="13" icon={<ContainerOutlined />}>
+              <Menu.Item key="hardware config" icon={<ContainerOutlined />}>
                 Hardware config
               </Menu.Item>
             </Menu>

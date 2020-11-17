@@ -1,5 +1,5 @@
 import React,{ Component ,useState}  from 'react';
-import { Table, Popconfirm, Form } from 'antd';
+import { Table,InputNumber, Popconfirm, Form } from 'antd';
 import { Select } from 'antd';
 
 // const originData = [];
@@ -9,46 +9,42 @@ const { Option } = Select;
   const originData = [];
   originData.push({
       key:'01',
-      ID:'1',
-      deviType:'2',
       port:'1',
-      baud:'19200',
-      parity:'None',
-      stop:'1',
-      data:'7',
-      type :'modbus-master' 
+      funcCode:'Read Coils',
+      Addre:'24',
+      mappinAddre:'1',
+      number:'19200',
+    
   },{
     key:'02',
-    ID:'1',
-    deviType:'2',
     port:'2',
-    baud:'19200',
-    parity:'None',
-    stop:'1',
-    data:'7',
-    type :'modbus-master' 
+    funcCode:'Read Discreate Inputs',
+    Addre:'56',
+    mappinAddre:'1',
+    number:'19200',
 },
 {
     key:'03',
-    ID:'1',
-    deviType:'2',
     port:'3',
-    baud:'19200',
-    parity:'None',
-    stop:'1',
-    data:'7',
-    type :'modbus-master' 
+    funcCode:'Read Holding Registers',
+    Addre:'23',
+    mappinAddre:'1',
+    number:'19200',
 },
 {
     key:'04',
-    ID:'1',
-    deviType:'2',
     port:'4',
-    baud:'19200',
-    parity:'None',
-    stop:'1',
-    data:'7',
-    type :'modbus-master' 
+    funcCode:'Read Input Registers',
+    Addre:'98',
+    mappinAddre:'1',
+    number:'19200',
+},{
+    key:'05',
+    port:'5',
+    funcCode:'Write Coil',
+    Addre:'200',
+    mappinAddre:'1',
+    number:'19200',
 })
 
 
@@ -63,32 +59,18 @@ const EditableCell = ({
   children,
   ...restProps
 }) => {
-
-
-  const inputNode = (inputType === 'baud' ?  <Select style={{ width: 80 }}>
-                                                 <Option value="19200"> 19200</Option>
-                                                 <Option value="115200"> 115200</Option>
-                                            </Select>
-                    : (inputType === 'parity' ? <Select style={{ width: 80 }}>
-                                                        <Option value="None"> None</Option>
-                                                        <Option value="Odd"> Odd</Option>
-                                                        <Option value="Even"> Even</Option>
-
-                                                </Select>
-                    :(inputType === 'stop'?<Select style={{ width: 80 }}>
-                                                        <Option value="0"> 0</Option>
-                                                        <Option value="1"> 1</Option>
-                                                </Select>
-                    :(inputType === 'data'?<Select style={{ width: 80 }}>
-                                                        <Option value="7"> 7</Option>
-                                                        <Option value="8"> 8</Option>
-                                            </Select>
-                    :<Select style={{ width: 160 }}>
-                        <Option value="modbus-master"> modbus-master</Option>
-                        <Option value="modbus-slave"> modbus-slave</Option>
-                     </Select>
-                    )) ))
-
+ 
+  const inputNode =inputType === 'funcCode' ? <Select style={{ width: 180 }}>
+                                                  <Option value="Read Coils"> Read Coils</Option>
+                                                  <Option value="Read Discreate Inputs"> Read Discreate Inputs</Option>
+                                                  <Option value="Read Holding Registers"> Read Holding Registers</Option>
+                                                  <Option value="Read Input Registers"> Read Input Registers</Option>
+                                                  <Option value="Write Coil"> Write Coil</Option>
+                                                  <Option value="Write Register"> Write Register</Option>
+                                                  <Option value="Write Coils"> Write Coils</Option>
+                                                  <Option value="Write Registers"> Write Registers</Option>
+                                              </Select> 
+                                              :<InputNumber />;
 
   return (
     <td {...restProps}>
@@ -129,14 +111,11 @@ const EditableTable = () => {
 
   const edit = (record) => {
     form.setFieldsValue({
-        ID:'',
-        deviType:'',
-        port:'',
-        baud:'',
-        parity:'',
-        stop:'',
-        data:'',
-        type :'modbus-master',
+      port:'',
+      funcCode:'',
+      Addre:'',
+      mappinAddre:'',
+      number:'',
       ...record,
     });
     setEditingKey(record.key);
@@ -171,51 +150,34 @@ const EditableTable = () => {
   //画table
   const columns = [
     {
-      title: '设备信息',
-      dataIndex: 'ID',
-      width: '15%',
+      title: '串口',
+      dataIndex: 'port',
+      width: '10%',
       editable: false,
     },
     {
-      title: '设备类型',
-      dataIndex: 'deviType',
-      width: '15%',
-      editable: false,
-    },
-    {
-        title: '串口',
-        dataIndex: 'port',
-        width: '15%',
-        editable: false,
-      },
-      {
-        title: '波特率',
-        dataIndex: 'baud',
-        width: '15%',
-        editable: true,
-      },
-      {
-        title: '校验位',
-        dataIndex: 'parity',
-        width: '15%',
-        editable: true,
-      },
-      {
-        title: '停止位',
-        dataIndex: 'stop',
-        width: '15%',
-        editable: true,
-      },
-    {
-      title: '数据位',
-      dataIndex: 'data',
-      width: '15%',
+      title: '功能码',
+      dataIndex: 'funcCode',
+      width: '25%',
       editable: true,
     },
-    {
-        title: '类型',
-        dataIndex: 'type',
-        width: '60%',
+    
+      {
+        title: '地址',
+        dataIndex: 'Addre',
+        width: '15%',
+        editable: true,
+      },
+      {
+        title: '映射地址',
+        dataIndex: 'mappinAddre',
+        width: '15%',
+        editable: true,
+      },
+      {
+        title: '数量',
+        dataIndex: 'number',
+        width: '15%',
         editable: true,
       },
     {
@@ -226,7 +188,7 @@ const EditableTable = () => {
         return editable ? (
           <span>
             <a
-              href="javascript:;"
+            //   href="javascript:;"
               onClick={() => save(record.key)}
               style={{
                 marginRight: 8,
@@ -234,7 +196,7 @@ const EditableTable = () => {
             >
               保存
             </a>
-            <Popconfirm title="Sure to cancel?" onConfirm={cancel}>
+            <Popconfirm title="取消编辑？" onConfirm={cancel}>
               <a>取消</a>
             </Popconfirm>
           </span>
@@ -279,24 +241,26 @@ const EditableTable = () => {
         dataSource={data}
         columns={mergedColumns}
         rowClassName="editable-row"
-        pagination={{
-          onChange: cancel,
-        }}
+        pagination={false}
       />
     </Form>
   );
 };
 
 
-export default class Home extends Component{
-    constructor(props){
-        super(props)
-        console.log('是在home页里面额',props)
-    }
+
+  
+
+
+
+
+
+export default class ModTCP extends Component{
     render(){
 
         return(
             <EditableTable />
+           
         )
     }
 

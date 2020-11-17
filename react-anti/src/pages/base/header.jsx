@@ -7,8 +7,10 @@ export default class Header extends Component{
     render(){
         return(
             <div style={ {
-                width :1280,
-                height:50,
+                width :'100vw',
+                height:'6vh',
+                fontSize:'25px',
+                // textAlign:"center",
                 backgroundColor:'black',
                 color:'white',
             } }>
