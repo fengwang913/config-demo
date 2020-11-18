@@ -9,8 +9,6 @@ const { Option } = Select;
   const originData = [];
   originData.push({
       key:'01',
-      ID:'1',
-      deviType:'2',
       port:'1',
       baud:'19200',
       parity:'None',
@@ -19,8 +17,6 @@ const { Option } = Select;
       type :'modbus-master' 
   },{
     key:'02',
-    ID:'1',
-    deviType:'2',
     port:'2',
     baud:'19200',
     parity:'None',
@@ -30,8 +26,6 @@ const { Option } = Select;
 },
 {
     key:'03',
-    ID:'1',
-    deviType:'2',
     port:'3',
     baud:'19200',
     parity:'None',
@@ -41,8 +35,6 @@ const { Option } = Select;
 },
 {
     key:'04',
-    ID:'1',
-    deviType:'2',
     port:'4',
     baud:'19200',
     parity:'None',
@@ -51,8 +43,6 @@ const { Option } = Select;
     type :'modbus-master' 
 },{
     key:'05',
-    ID:'1',
-    deviType:'2',
     port:'5',
     baud:'19200',
     parity:'None',
@@ -161,8 +151,6 @@ const EditableTable = () => {
 
   const edit = (record) => {
     form.setFieldsValue({
-        ID:'',
-        deviType:'',
         port:'',
         baud:'',
         parity:'',
@@ -203,18 +191,6 @@ const EditableTable = () => {
   //画table
   const columns = [
     {
-      title: '设备信息',
-      dataIndex: 'ID',
-      width: '10%',
-      editable: false,
-    },
-    {
-      title: '设备类型',
-      dataIndex: 'deviType',
-      width: '10%',
-      editable: false,
-    },
-    {
         title: '串口',
         dataIndex: 'port',
         width: '10%',
@@ -223,13 +199,13 @@ const EditableTable = () => {
       {
         title: '波特率',
         dataIndex: 'baud',
-        width: '10%',
+        width: '15%',
         editable: true,
       },
       {
         title: '校验位',
         dataIndex: 'parity',
-        width: '10%',
+        width: '15%',
         editable: true,
       },
       {
@@ -247,7 +223,7 @@ const EditableTable = () => {
     {
         title: '类型',
         dataIndex: 'type',
-        width: '20%',
+        width: '25%',
         editable: true,
       },
     {

@@ -4,8 +4,8 @@ import {BrowserRouter as Router ,Route ,Switch  } from 'react-router-dom';
 
 import Home from './menu/home/home'
 import Log from './menu/log'
-import ModRTU from './menu/modrtu'
-import ModTCP from './menu/modtcp'
+import ModRTU from './menu/modrtu/modrtu'
+import ModTCP from './menu/modtcp/modtcp'
 import TermSer from './menu/term-serv'
 import MQTT from './menu/mqtt'
 import Zigbee from './menu/zigbee'

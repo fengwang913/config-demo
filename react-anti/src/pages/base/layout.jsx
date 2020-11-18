@@ -48,8 +48,8 @@ class SiderDemo extends React.Component {
           <Content
             className="site-layout-background"
             style={{
-              margin: '24px 16px',
-              padding: 24,
+              margin: '1px 32px',
+              padding: 5,
               minHeight: 280,
             }}
           >

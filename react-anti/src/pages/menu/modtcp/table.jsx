@@ -1,66 +1,10 @@
 import React,{ Component ,useState}  from 'react';
-import { Table,InputNumber, Popconfirm, Button,Form } from 'antd';
+import { Table,InputNumber, Popconfirm, Form } from 'antd';
 import { Select } from 'antd';
 
 // const originData = [];
 
 const { Option } = Select;
-//原始数据而已
-  const originData = [];
-  originData.push({
-      key:'01',
-      port:'1',
-      funcCode:'Read Coils',
-      Addre:'24',
-      mappinAddre:'1',
-      number:'19200',
-    
-  },{
-    key:'02',
-    port:'2',
-    funcCode:'Read Discreate Inputs',
-    Addre:'56',
-    mappinAddre:'1',
-    number:'19200',
-},
-{
-    key:'03',
-    port:'3',
-    funcCode:'Read Holding Registers',
-    Addre:'23',
-    mappinAddre:'1',
-    number:'19200',
-},
-{
-    key:'04',
-    port:'4',
-    funcCode:'Read Input Registers',
-    Addre:'98',
-    mappinAddre:'1',
-    number:'19200',
-},{
-    key:'05',
-    port:'5',
-    funcCode:'Write Coil',
-    Addre:'200',
-    mappinAddre:'1',
-    number:'19200',
-},{
-    key:'06',
-    port:'6',
-    funcCode:'Write Coil',
-    Addre:'200',
-    mappinAddre:'1',
-    number:'19200',
-},
-{
-    key:'07',
-    port:'7',
-    funcCode:'Write Coil',
-    Addre:'200',
-    mappinAddre:'1',
-    number:'19200',
-})
 
 
 //单元格的格式以及规则的限定
@@ -126,11 +70,14 @@ const EditableTable = (props) => {
 
   const edit = (record) => {
     form.setFieldsValue({
-      port:'',
-      funcCode:'',
-      Addre:'',
-      mappinAddre:'',
-      number:'',
+        IP:'',
+        port:'',
+        slaveId:'',
+        funcCode:'',
+        Addre:'',
+        mappinAddre:'',
+        number:'',
+        timeout:'',
       ...record,
     });
     setEditingKey(record.key);
@@ -165,34 +112,52 @@ const EditableTable = (props) => {
   //画table
   const columns = [
     {
-      title: '串口',
+        title: '序号',
+        dataIndex: 'index',
+        width: '8%',
+        editable: false,
+      },
+    {
+      title: 'Port',
       dataIndex: 'port',
-      width: '10%',
+      width: '8%',
       editable: false,
     },
     {
+        title: 'Slave ID',
+        dataIndex: 'slaveId',
+        width: '8%',
+        editable: false,
+      },
+    {
       title: '功能码',
       dataIndex: 'funcCode',
-      width: '25%',
+      width: '20%',
       editable: true,
     },
     
       {
         title: '地址',
         dataIndex: 'Addre',
-        width: '15%',
+        width: '10%',
         editable: true,
       },
       {
         title: '映射地址',
         dataIndex: 'mappinAddre',
-        width: '15%',
+        width: '10%',
         editable: true,
       },
       {
         title: '数量',
         dataIndex: 'number',
-        width: '15%',
+        width: '10%',
+        editable: true,
+      },
+      {
+        title: '响应时间',
+        dataIndex: 'timeout',
+        width: '10%',
         editable: true,
       },
     {
@@ -261,86 +226,10 @@ const EditableTable = (props) => {
     </Form>
   );
 };
+  
 
 
 
 
-export default class MQTT extends Component{
-    constructor(props){
-        super(props)
-        this.state={
-            source : originData
-        }
-        console.log('this.state.sourcethis.state.source',this.state.source)
-    }
-    shouldComponentUpdate(nextProps,nextState){
 
-        console.log('shouldComponentUpdateshouldComponentUpdate')
-        return nextState.source !== this.state.source
-    }
-    handleChange = () => {
-        console.log('Various parameters', 'wolaile');
-    }
-
-    handleAdd = () => {
-        // const count = this.props.
-        // const newData = {
-        //   key: count,
-        //   name: `Edward King ${count}`,
-        //   age: 32,
-        //   address: `London, Park Lane no. ${count}`,
-        // };
-        // this.setState({
-        //   dataSource: [...dataSource, newData],
-        //   count: count + 1,
-        // });
-        
-        const count= (originData.length +1).toString();
-        console.log('11111111111111111',count)
-     
-        originData.push({
-            key: count,
-            port:count,
-            funcCode:'Read Coils',
-            Addre:'24',
-            mappinAddre:'1',
-            number:'19200',
-          });
-
-          this.setState({
-            source: [originData],
-           
-          });
-          console.log('222222222',this.state.source)
-         
-      };
-       
-
-      
-    render(){
-        let re = this.state.source
-        console.log('rererererere',re)
-
-
-        return(
-            <div>
-                <span style={{fontSize:'22px'}}>Test</span>
-                <div>
-                    <Button
-                        onClick={this.handleAdd}
-                        type="primary"
-                        style={{
-                            marginBottom: 16,
-                        }}
-                        >
-                         添加一行
-                    </Button>
-                    <EditableTable originData = {re} onChange={this.handleChange}/>
-                </div>
-            </div>
-        )
-    }
-
-    
-}
-
+export default EditableTable;

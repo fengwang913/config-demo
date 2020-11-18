@@ -13,11 +13,7 @@ export default class Home extends Component{
 
         return(
             <div>
-                <div style={{fontSize:'22px'}}>
-                    <span>设备ID:{'123456'}</span>
-                    <span style={{marginLeft:'50px'}}>设备类型:{'234556'}</span>
-                </div>
-                <div style={{fontSize:'20px',marginTop:20}}>
+                <div style={{fontSize:'20px'}}>
                     <span>串口参数及配置</span>
                      <PortCon />
                 </div>

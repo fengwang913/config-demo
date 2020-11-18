@@ -1,6 +1,6 @@
 import React,{ Component }  from 'react';
-import Network1 from './network1';
-import Network2 from './network2';
+
+import NetSelect from './tabs'
 
 
 
@@ -9,8 +9,8 @@ export default class ModTCP extends Component{
 
         return(
             <div>
-                <Network1 />
-                <Network2 />
+                <NetSelect />
+
             </div>
             
         )

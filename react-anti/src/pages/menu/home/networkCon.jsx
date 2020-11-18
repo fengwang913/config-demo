@@ -9,11 +9,13 @@ const { Option } = Select;
   const originData = [];
   originData.push({
       key:'01',
+      ID:'1',
       IP:'1',
       Gateway:'2',
       Mask:'1',
   },{
     key:'02',
+    ID:'2',
     IP:'2',
     Gateway:'2',
     Mask:'1',
@@ -103,6 +105,7 @@ const EditableTable = () => {
 
   const edit = (record) => {
     form.setFieldsValue({
+        ID:'',
         IP:'',
         Gateway:'',
         Mask:'',
@@ -140,21 +143,27 @@ const EditableTable = () => {
   //画table
   const columns = [
     {
+        title: '网口',
+        dataIndex: 'ID',
+        width: '20%',
+        editable: false,
+      },
+    {
       title: 'IP',
       dataIndex: 'IP',
-      width: '25%',
+      width: '20%',
       editable: false,
     },
     {
       title: 'Gateway',
       dataIndex: 'Gateway',
-      width: '25%',
+      width: '20%',
       editable: false,
     },
     {
         title: 'Mask',
         dataIndex: 'Mask',
-        width: '25%',
+        width: '20%',
         editable: true,
       },
     {
