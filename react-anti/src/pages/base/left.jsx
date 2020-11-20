@@ -121,10 +121,10 @@ class Left extends React.Component {
                  Device Realtime Status 
             </Menu.Item>
 
-            <SubMenu key="sub4" icon={<MailOutlined />} title="Firmware upgrade">
-                <Menu.Item key="rts">RTS</Menu.Item>
-                <Menu.Item key="ios">IOS</Menu.Item>
-              </SubMenu>
+ 
+            <Menu.Item key="firmware" icon={<MailOutlined />}>Firmware upgrade</Menu.Item>
+   
+    
   
 
             <Menu.Item key="hardwareconfig" icon={<ContainerOutlined />}>

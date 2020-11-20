@@ -10,9 +10,8 @@ import TermSer from './menu/term-serv'
 import MQTT from './menu/mqtt'
 import Zigbee from './menu/zigbee'
 import DevRealS from './menu/device-real'
-import RTS from './menu/Fireware/rts'
-import IOS from './menu/Fireware/ios'
-import HardwareCon from './menu/hardware-conf'
+import Upgrade from './menu/Fireware/upgrade'
+import HardwareCon from './menu/hardware/hardwareCon'
 
 
 
@@ -38,8 +37,7 @@ export default class View extends Component{
                         <Route path='/mqtt' component={MQTT}></Route>
                         <Route path='/zigbee' component={Zigbee}></Route>
                         <Route path='/devicerealtime' component={DevRealS}></Route>
-                        <Route path='/rts'  component={RTS}></Route>
-                        <Route path='/ios' component={IOS}></Route>
+                        <Route path='/firmware'  component={Upgrade}></Route>
                         <Route path='/hardwareconfig' component={HardwareCon}></Route>
                         </Switch>
                 </Router>  

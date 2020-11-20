@@ -4,7 +4,7 @@ export default class IOS extends Component{
     render(){
 
         return(
-            <div>
+            <div style={{width:'49%',backgroundColor:'white'}}>
                 <h1>
                      IOS 
                 </h1>

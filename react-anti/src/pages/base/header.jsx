@@ -12,7 +12,7 @@ export default class Header extends Component{
                             height:'6vh',
                             fontSize:'25px',
                             // textAlign:"center",
-                            backgroundColor:'black',
+                            backgroundColor:'#282c34',
                             color:'white',
                         } }>
                             <div style={{marginLeft:'10px'}}> 

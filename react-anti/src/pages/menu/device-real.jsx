@@ -3,6 +3,7 @@ import { Table, Input, Button, Popconfirm, Form } from 'antd';
 const EditableContext = React.createContext();
 
 const EditableRow = ({ index, ...props }) => {
+  console.log('woshishui',props)
   const [form] = Form.useForm();
   return (
     <Form form={form} component={false}>
@@ -85,6 +86,7 @@ const EditableCell = ({
 export default class EditableTable extends React.Component {
   constructor(props) {
     super(props);
+    console.log('这时候的我呢',props)
     //画table
     this.columns = [
       {
@@ -186,6 +188,7 @@ export default class EditableTable extends React.Component {
 
   render() {
     const { dataSource } = this.state;
+    console.log('aaaaaaaa这时候的我呢？',this.state)
     const components = {
       body: {
         row: EditableRow,
