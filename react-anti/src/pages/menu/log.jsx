@@ -1,63 +1,70 @@
 import React,{ Component }  from 'react';
-import { List, Card } from 'antd';
+import { List, DatePicker,Button,Pagination   } from 'antd';
+import { SearchOutlined } from '@ant-design/icons';
+
+
+
+
+const { RangePicker } = DatePicker;
 
 const data = [
   {
-    title: 'Title 1',
-    time:'2020-11-20',
-    cont:'是我了啦',
+    index:'1',
+    title: '2020-11-20',
+    desc:'这是一条消息记录。'
   },
   {
-    title: 'Title 2',
-    time:'2020-11-20',
-    cont:'是我了啦',
+    index:'2',
+    title: '2020-11-20',
+    desc:'这是一条消息记录。'
   },
   {
-    title: 'Title 3',
-    time:'2020-11-20',
-    cont:'是我了啦',
+    index:'3',
+    title: '2020-11-20',
+    desc:'这是一条消息记录。'
   },
   {
-    title: 'Title 4',
-    time:'2020-11-20',
-    cont:'是我了啦',
-  },
-  {
-    title: 'Title 5',
-    time:'2020-11-20',
-    cont:'是我了啦',
-  },
-  {
-    title: 'Title 6',
-    time:'2020-11-20',
-    cont:'是我了啦',
-  },
-  {
-    title: 'Title 7',
-    time:'2020-11-20',
-    cont:'是我了啦',
-  },
-  {
-    title: 'Title 8',
-    time:'2020-11-20',
-    cont:'是我了啦',
-  },
+    index:'4',
+    title: '2020-11-20',
+    desc:'这是一条消息记录。'
+  }
 ];
+
 
 export default class Log extends Component{
     render(){
 
         return(
             <div>
-                  <List
-                      itemLayout="horizontal"
-                      dataSource={data}
-                      renderItem={item => (
-                        <List.Item>
-                          {item.title}
-                        </List.Item>
-                      )}
-                    />,
+              <div style={{float:'right',zIndex:1}} >
+                <RangePicker style={{zIndex:1}} />
+                <Button
+                    type="primary"
+                    style={{zIndex:2}}
+                    onClick={()=>{console.log('111')}}
+                    icon={<SearchOutlined />
+                    
+                    }
+                  />
+              </div>
+
+              <div style={{backgroundColor:'white',paddingLeft:'10px'}} >
+                <List
+                  itemLayout="horizontal"
+                  dataSource={data}
+                  renderItem={item => (
+                    <List.Item>
+                      <List.Item.Meta
+                        title={item.title}
+                        description={item.desc}
+                      />
+                    </List.Item>
+                  )}
+                />
+              </div>
+              <div>
+                <Pagination defaultCurrent={1} total={50} style={{float:'right'}}/>
+              </div>
             </div>
         )
     }

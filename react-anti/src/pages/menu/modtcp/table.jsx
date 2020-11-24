@@ -114,25 +114,31 @@ const EditableTable = (props) => {
     {
         title: '序号',
         dataIndex: 'index',
-        width: '8%',
+        width: '5%',
+        editable: false,
+      },
+      {
+        title: 'IP',
+        dataIndex: 'IP',
+        width: '10%',
         editable: false,
       },
     {
       title: 'Port',
       dataIndex: 'port',
-      width: '8%',
+      width: '3%',
       editable: false,
     },
     {
         title: 'Slave ID',
         dataIndex: 'slaveId',
-        width: '8%',
+        width: '10%',
         editable: false,
       },
     {
       title: '功能码',
       dataIndex: 'funcCode',
-      width: '20%',
+      width: '18%',
       editable: true,
     },
     

@@ -1,7 +1,8 @@
 import React,{ useState}  from 'react';
-import { Table,InputNumber, Popconfirm, Form } from 'antd';
+import { Table, Popconfirm, Form, Input ,InputNumber  } from 'antd';
 import { Select } from 'antd';
 
+// const originData = [];
 
 const { Option } = Select;
 
@@ -18,17 +19,29 @@ const EditableCell = ({
   ...restProps
 }) => {
  
-  const inputNode =inputType === 'funcCode' ? <Select style={{ width: 180 }}>
-                                                  <Option value="Read Coils"> Read Coils</Option>
-                                                  <Option value="Read Discreate Inputs"> Read Discreate Inputs</Option>
-                                                  <Option value="Read Holding Registers"> Read Holding Registers</Option>
-                                                  <Option value="Read Input Registers"> Read Input Registers</Option>
-                                                  <Option value="Write Coil"> Write Coil</Option>
-                                                  <Option value="Write Register"> Write Register</Option>
-                                                  <Option value="Write Coils"> Write Coils</Option>
-                                                  <Option value="Write Registers"> Write Registers</Option>
-                                              </Select> 
-                                              :<InputNumber />;
+  const inputNode =  (inputType === 'IP'? <Select style={{ width: 90 }}>
+                                                <Option value="IP"> IP</Option>
+                                                <Option value="DNS"> DNS</Option>
+                                          </Select>:(
+                      inputType === 'port' ? <InputNumber 
+                                                style={{ width: 50 }}/> :(
+                      inputType === 'ClientID' ? <Input 
+                                                style={{ width: 60 }} /> :(
+                      inputType === 'ConnectTimeout' ? <Input 
+                                                style={{ width: 50 }}/> :(
+                      inputType === 'KeepAliveInterval' ? <InputNumber 
+                                                style={{ width: 70 }}/> :(
+                      inputType === 'UserName' ? <Input
+                                                style={{ width: 60 }}/> :(
+                      inputType === 'UserPassword' ? <Input 
+                                                style={{ width: 60 }}/> :(
+                      inputType === 'TLS' ? <Select style={{ width: 90 }}>
+                                                <Option value="使能"> 使能</Option>
+                                                <Option value="不使能">不使能</Option>
+                                            </Select> :null
+                                    ))))))))
+                   
+
 
   return (
     <td {...restProps}>
@@ -56,22 +69,26 @@ const EditableCell = ({
 
 
 //
-const EditableTable = (props) => {
+const BrokerTab = (props) => {
+    console.log('我的props是多少呢',props)
   const [form] = Form.useForm();
   const [data, setData] = useState(props.originData);
   const [editingKey, setEditingKey] = useState('');
+  console.log('我现在是多少呢',data)
+  
 
   const isEditing = (record) => record.key === editingKey;
 
-
-
   const edit = (record) => {
     form.setFieldsValue({
-      index:'',
-      funcCode:'',
-      Addre:'',
-      mappinAddre:'',
-      number:'',
+        IP:'',
+        port:'',
+        ClientID:'',
+        ConnectTimeoutMask:'',
+        KeepAliveInterval:'',
+        UserName:'',
+        UserPassword:'',
+        TLS:'',
       ...record,
     });
     setEditingKey(record.key);
@@ -106,34 +123,51 @@ const EditableTable = (props) => {
   //画table
   const columns = [
     {
-      title: '序号',
-      dataIndex: 'index',
-      width: '10%',
-      editable: false,
-    },
+        title: 'IP地址或DNS',
+        dataIndex: 'IP',
+        width: '10%',
+        editable: true,
+      },
     {
-      title: '功能码',
-      dataIndex: 'funcCode',
-      width: '25%',
+      title: '端口号',
+      dataIndex: 'port',
+      width: '10%',
       editable: true,
     },
-    
-      {
-        title: '地址',
-        dataIndex: 'Addre',
-        width: '15%',
+    {
+      title: 'Client ID',
+      dataIndex: 'ClientID',
+      width: '10%',
+      editable: true,
+    },
+    {
+        title: 'Connect Timeout',
+        dataIndex: 'ConnectTimeout',
+        width: '10%',
         editable: true,
       },
       {
-        title: '映射地址',
-        dataIndex: 'mappinAddre',
-        width: '15%',
+        title: 'Keep Alive Interval',
+        dataIndex: 'KeepAliveInterval',
+        width: '10%',
         editable: true,
       },
       {
-        title: '数量',
-        dataIndex: 'number',
-        width: '15%',
+        title: '用户名',
+        dataIndex: 'UserName',
+        width: '10%',
+        editable: true,
+      },
+      {
+        title: '用户密码',
+        dataIndex: 'UserPassword',
+        width: '10%',
+        editable: true,
+      },
+      {
+        title: 'TLS 使能',
+        dataIndex: 'TLS',
+        width: '10%',
         editable: true,
       },
     {
@@ -152,7 +186,7 @@ const EditableTable = (props) => {
             >
               保存
             </a>
-            <Popconfirm title="取消编辑？" onConfirm={cancel}>
+            <Popconfirm title="Sure to cancel?" onConfirm={cancel}>
               <a>取消</a>
             </Popconfirm>
           </span>
@@ -204,4 +238,4 @@ const EditableTable = (props) => {
 };
 
 
-export default EditableTable;
+export default BrokerTab;

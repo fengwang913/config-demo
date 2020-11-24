@@ -56,22 +56,25 @@ const EditableCell = ({
 
 
 //
-const EditableTable = (props) => {
+const AiTable = (props) => {
   const [form] = Form.useForm();
-  const [data, setData] = useState(props.originData);
+
+  const [data, setData] = useState(props.info);
   const [editingKey, setEditingKey] = useState('');
+  console.log('此时的data是多少呢？',data)
+  
 
   const isEditing = (record) => record.key === editingKey;
 
-
+  console.log('此时的editingKey是多少呢？',editingKey)
 
   const edit = (record) => {
     form.setFieldsValue({
-      index:'',
-      funcCode:'',
-      Addre:'',
-      mappinAddre:'',
-      number:'',
+        index:'',
+        SOE:'',
+        SOERange:'',
+        SOEUpper:'',
+        SOELower:'',
       ...record,
     });
     setEditingKey(record.key);
@@ -112,27 +115,27 @@ const EditableTable = (props) => {
       editable: false,
     },
     {
-      title: '功能码',
-      dataIndex: 'funcCode',
+      title: 'SOE事件',
+      dataIndex: 'SOE',
       width: '25%',
       editable: true,
     },
     
       {
-        title: '地址',
-        dataIndex: 'Addre',
+        title: 'SOE滞回区间',
+        dataIndex: 'SOERange',
         width: '15%',
         editable: true,
       },
       {
-        title: '映射地址',
-        dataIndex: 'mappinAddre',
+        title: 'SOE上限',
+        dataIndex: 'SOEUpper',
         width: '15%',
         editable: true,
       },
       {
-        title: '数量',
-        dataIndex: 'number',
+        title: 'SOE下限',
+        dataIndex: 'SOELower',
         width: '15%',
         editable: true,
       },
@@ -198,10 +201,14 @@ const EditableTable = (props) => {
         columns={mergedColumns}
         rowClassName="editable-row"
         pagination={false}
+        scroll={{x:'true'}}
       />
     </Form>
   );
 };
 
 
-export default EditableTable;
+export default AiTable;
+
+
+

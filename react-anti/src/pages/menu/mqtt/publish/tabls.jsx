@@ -1,5 +1,5 @@
 import React,{ useState}  from 'react';
-import { Table,InputNumber, Popconfirm, Form } from 'antd';
+import { Table,InputNumber, Popconfirm, Form,Input} from 'antd';
 import { Select } from 'antd';
 
 
@@ -18,17 +18,11 @@ const EditableCell = ({
   ...restProps
 }) => {
  
-  const inputNode =inputType === 'funcCode' ? <Select style={{ width: 180 }}>
-                                                  <Option value="Read Coils"> Read Coils</Option>
-                                                  <Option value="Read Discreate Inputs"> Read Discreate Inputs</Option>
-                                                  <Option value="Read Holding Registers"> Read Holding Registers</Option>
-                                                  <Option value="Read Input Registers"> Read Input Registers</Option>
-                                                  <Option value="Write Coil"> Write Coil</Option>
-                                                  <Option value="Write Register"> Write Register</Option>
-                                                  <Option value="Write Coils"> Write Coils</Option>
-                                                  <Option value="Write Registers"> Write Registers</Option>
-                                              </Select> 
-                                              :<InputNumber />;
+  const inputNode =(inputType === 'topic' ?<Input /> :(
+                    inputType === 'zone' ? <InputNumber /> :(
+                    inputType === 'addr'?<InputNumber /> :(
+                    inputType === 'size'?<InputNumber /> :null)))
+                        )
 
   return (
     <td {...restProps}>
@@ -56,22 +50,21 @@ const EditableCell = ({
 
 
 //
-const EditableTable = (props) => {
+const PublishTable = (props) => {
   const [form] = Form.useForm();
   const [data, setData] = useState(props.originData);
   const [editingKey, setEditingKey] = useState('');
+  
 
   const isEditing = (record) => record.key === editingKey;
 
 
-
   const edit = (record) => {
     form.setFieldsValue({
-      index:'',
-      funcCode:'',
-      Addre:'',
-      mappinAddre:'',
-      number:'',
+      topic:'',
+      zone:'',
+      addr:'',
+      size:'',
       ...record,
     });
     setEditingKey(record.key);
@@ -111,28 +104,27 @@ const EditableTable = (props) => {
       width: '10%',
       editable: false,
     },
-    {
-      title: '功能码',
-      dataIndex: 'funcCode',
-      width: '25%',
-      editable: true,
-    },
-    
       {
-        title: '地址',
-        dataIndex: 'Addre',
+        title: 'topic',
+        dataIndex: 'topic',
         width: '15%',
         editable: true,
       },
       {
-        title: '映射地址',
-        dataIndex: 'mappinAddre',
+        title: '区域',
+        dataIndex: 'zone',
         width: '15%',
         editable: true,
       },
       {
-        title: '数量',
-        dataIndex: 'number',
+        title: 'modbus address',
+        dataIndex: 'addr',
+        width: '20%',
+        editable: true,
+      },
+      {
+        title: 'size',
+        dataIndex: 'size',
         width: '15%',
         editable: true,
       },
@@ -204,4 +196,5 @@ const EditableTable = (props) => {
 };
 
 
-export default EditableTable;
+export default PublishTable;
+

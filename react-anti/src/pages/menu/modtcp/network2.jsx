@@ -10,6 +10,7 @@ export default class NetWork02 extends Component{
       originData:[{
         key:'01',
         index:'1',
+        IP:'1111',
         port:'1',
         slaveId:'123',
         funcCode:'Read Coils',
@@ -21,6 +22,7 @@ export default class NetWork02 extends Component{
     },{
       key:'02',
       index:'2',
+      IP:'1111',
       port:'1',
       slaveId:'123',
       funcCode:'Read Coils',
