@@ -85,7 +85,6 @@ class Left extends React.Component {
 
   render() {
     return (
-
   
         <Menu
             onClick={this._handleClick}
@@ -93,7 +92,7 @@ class Left extends React.Component {
             // onOpenChange={this.onOpenChange}
             selectedKeys={this.leftMenuHighLight()}
             defaultSelectedKeys={['/']}
-            defaultOpenKeys={['sub4']}
+            // defaultOpenKeys={['sub1']}
             mode="inline"
             theme="dark"
         >
@@ -102,18 +101,26 @@ class Left extends React.Component {
             <Menu.Item key="log" icon={<DesktopOutlined />}>
                 Log
             </Menu.Item>
-            <Menu.Item key="ModbusRTU-Master" icon={<VideoCameraOutlined />} >
+            <SubMenu  key="sub1" icon={<VideoCameraOutlined />} title="ModbusRTU-Master">
+                  <Menu.Item key="Port1">Port1</Menu.Item>
+                  <Menu.Item key="Port2">Port2</Menu.Item>
+                  <Menu.Item key="Port3">Port3</Menu.Item>
+                  <Menu.Item key="Port4">Port4</Menu.Item>
+                  <Menu.Item key="Port5">Port5</Menu.Item>                
+            </SubMenu >
+            {/* <Menu.Item key="ModbusRTU-Master" icon={<VideoCameraOutlined />} >
                 ModbusRTU-Master
-            </Menu.Item>
+            </Menu.Item> */}
             <Menu.Item key="ModbusTCP-Master" icon={<MailOutlined />}>
                 ModbusTCP-Master
             </Menu.Item>
             <Menu.Item key="termialserver" icon={<ContainerOutlined />}>
                 Terminal Server 
             </Menu.Item>
-            <Menu.Item key="mqtt" icon={<UploadOutlined />}>
-                 MQTT
-            </Menu.Item>
+            <SubMenu  key="sub2" icon={<UploadOutlined />} title="MQTT">
+                  <Menu.Item key="broker1">Broker1</Menu.Item>
+                  <Menu.Item key="broker2">Broker2</Menu.Item>
+            </SubMenu >
             <Menu.Item key="zigbee" icon={<ContainerOutlined />}>
                  Zigbee
             </Menu.Item>

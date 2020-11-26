@@ -78,6 +78,9 @@ export default class Port04 extends Component{
 
       return(
           <div>
+              <div style={{fontSize:'20px'}} >
+                  串口 4
+              </div>
               <EditableTable  originData={this.state.originData} />
           </div>
       )

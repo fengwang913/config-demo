@@ -58,8 +58,12 @@ const EditableCell = ({
 //
 const EditableTable = (props) => {
   const [form] = Form.useForm();
+  console.log('RTU里面的props数据类型是什么样的呢？',props)
+  console.log('RTU里面的props.originData数据类型是什么样的呢？',props.originData)
+
   const [data, setData] = useState(props.originData);
   const [editingKey, setEditingKey] = useState('');
+  console.log('RTU里面的数据类型是什么样的呢？',data)
 
   const isEditing = (record) => record.key === editingKey;
 

@@ -1,6 +1,9 @@
 import React,{ Component }  from 'react';
-import IOS from './ios';
-import RTS from './rts'
+
+
+import IOS from './ios/ios';
+import RTS from './rts/rts'
+
 
 export default class Upgrade extends Component{
     render(){
@@ -15,5 +18,4 @@ export default class Upgrade extends Component{
         )
     }
 
-    
 }

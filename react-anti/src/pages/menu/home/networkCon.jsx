@@ -10,13 +10,13 @@ const { Option } = Select;
   originData.push({
       key:'01',
       ID:'1',
-      IP:'1',
+      IP:'255.255.255.255',
       Gateway:'2',
       Mask:'1',
   },{
     key:'02',
     ID:'2',
-    IP:'2',
+    IP:'255.255.255.255',
     Gateway:'2',
     Mask:'1',
 },

@@ -28,24 +28,29 @@ const props = {
   },
 };
 
-
-export default class RST extends Component{
+export default class IOS4 extends Component{
     render(){
 
         return(
-            <div  style={{width:'49%',backgroundColor:'white',marginLeft:10,fontSize:'20px'}}>
-   
-                <div  style={{width:'300px',margin:'8px'}}>
-                RTS
-                <div>
-                    <Upload {...props}>
-                        <Button icon={<UploadOutlined />}>Click to Upload</Button>
-                    </Upload>
-                </div>
+            <div style={{width:'49%',backgroundColor:'white'}}>
+                <div  style={{width:'35vw',
+                              fontSize:'18px',
+                              border:'1px solid #eee',
+                              marginTop:'20px',
+                              padding:'10px'}}>
+                    IOS4
+                    <div style={{fontSize:'14px'}}>
+                      目前IOS4的版本信息为xxxxxxx
+                    </div>
+                    <div style={{marginTop:'14px',display:'flex'}}>
+                        <Upload {...props}>
+                            <Button icon={<UploadOutlined />}>Click to Upload</Button>
+                        </Upload>
+                        <Button style={{marginLeft:'15px'}}>上传</Button>
+                    </div>
                 </div>
             </div>
         )
     }
 
-    
 }

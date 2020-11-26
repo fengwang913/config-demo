@@ -6,7 +6,7 @@ import Broker from './broker'
 
 
 
-export default class Info1 extends Component{
+export default class Broker1 extends Component{
     constructor(props){
         super(props)
         this.state ={
@@ -28,6 +28,9 @@ export default class Info1 extends Component{
 
         return(
             <div>
+                <div style={{fontSize:'22px'}}>
+                    Broker1
+                </div>
                 <BrokerTab originData={this.state.originData}/>
                 <Broker />
             </div>

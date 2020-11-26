@@ -1,6 +1,7 @@
-import React,{ useState}  from 'react';
+import React,{ useState ,useEffect }  from 'react';
 import { Table,InputNumber, Popconfirm, Form } from 'antd';
 import { Select } from 'antd';
+// import Info from '../info';
 
 
 const { Option } = Select;
@@ -59,10 +60,14 @@ const EditableCell = ({
 const CpuTable = (props) => {
   const [form] = Form.useForm();
   const info = props.info;
-  console.log('info的值是多少嫩嗯嗯嗯',info)
-  const [data, setData] = useState(info);
+  const [data, setData] = useState(props.info);
+  console.log('dataaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',info)
   const [editingKey, setEditingKey] = useState('');
-  console.log('CPUCPUCPUCPUCOCU此时的data是多少呢？',data)
+
+  useEffect(() =>{
+
+      setData(info)
+  })
   
 
   const isEditing = (record) => record.key === editingKey;
@@ -72,11 +77,11 @@ const CpuTable = (props) => {
   const edit = (record) => {
     form.setFieldsValue({
         index:'',
+        type:'',
         SOE:'',
         SOERange:'',
         SOEUpper:'',
         SOELower:'',
-        fault:'',
       ...record,
     });
     setEditingKey(record.key);
@@ -112,38 +117,38 @@ const CpuTable = (props) => {
   const columns = [
     {
       title: '序号',
-      dataIndex: 'index',
+      dataIndex:'index',
       width: '10%',
       editable: false,
     },
     {
         title: '通道类型',
-        dataIndex: 'type',
+        dataIndex:'type',
         width: '25%',
         editable: true,
       },
     {
       title: 'SOE事件',
-      dataIndex: 'SOE',
+      dataIndex:'SOE',
       width: '25%',
       editable: true,
     },
     
       {
         title: 'SOE滞回区间',
-        dataIndex: 'SOERange',
+        dataIndex:'SOERange',
         width: '15%',
         editable: true,
       },
       {
         title: 'SOE上限',
-        dataIndex: 'SOEUpper',
+        dataIndex:'SOEUpper',
         width: '15%',
         editable: true,
       },
       {
         title: 'SOE下限',
-        dataIndex: 'SOELower',
+        dataIndex:'SOELower',
         width: '15%',
         editable: true,
       },

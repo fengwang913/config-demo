@@ -78,6 +78,7 @@ const EditableTable = (props) => {
         mappinAddre:'',
         number:'',
         timeout:'',
+        netport:'',
       ...record,
     });
     setEditingKey(record.key);
@@ -157,6 +158,12 @@ const EditableTable = (props) => {
       {
         title: '数量',
         dataIndex: 'number',
+        width: '10%',
+        editable: true,
+      }, 
+       {
+        title: 'Netport',
+        dataIndex: 'netport',
         width: '10%',
         editable: true,
       },

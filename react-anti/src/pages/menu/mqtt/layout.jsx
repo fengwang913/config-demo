@@ -1,4 +1,4 @@
-import React,{ Component }  from 'react';
+import React from 'react';
 import { Tabs} from 'antd';
 
 import Info1 from './broker/info1'

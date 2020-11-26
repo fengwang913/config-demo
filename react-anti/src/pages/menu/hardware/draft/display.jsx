@@ -16,19 +16,28 @@ const Display = (props) =>{
     data.map( (item,index) => {
         console.log('itemitem',item)
         
-        if(item === 'cpu'){
+        if(item === 'CPU'){
             return(
-                <Cpu key={index} />
+                <Cpu key={index}  
+                     index={index} 
+                     selectImg={props.selectImg}
+                     type={'CPU'}/>
             )
         }
-        if(item === 'ai'){
+        if(item === 'AI'){
             return(
-                <Ai key={index}/>
+                <Ai key={index} 
+                    index={index} 
+                    selectImg={props.selectImg}
+                    type={'AI'}/>
             )
         }
-        if(item ==='ao'){
+        if(item ==='AO'){
             return(
-                <Ao key={index}/>
+                <Ao key={index}
+                    index={index} 
+                    selectImg={props.selectImg}
+                    type={'AO'}/>
             )
         }else{
             return null;

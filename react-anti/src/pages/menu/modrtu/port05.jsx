@@ -88,6 +88,9 @@ export default class Port05 extends Component{
 
       return(
           <div>
+               <div style={{fontSize:'20px'}} >
+                  串口 5
+              </div>
              <EditableTable originData={this.state.originData} />
           </div>
       )

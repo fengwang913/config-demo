@@ -15,19 +15,18 @@ export default class Draft extends Component{
         return(
             <div>
                 <div>
-                    <Space style={{marginLeft:'60%',marginTop:'5px'}}>
-                        <Button onClick ={this.props.changeList} >CPU</Button>
-                        <Button onClick ={this.props.changeList} >AI</Button>
+                    <Space style={{marginLeft:'10px',marginTop:'5px'}}>
+                        <Button onClick ={this.props.uploadList} >上传</Button>
+                        {/* <Button onClick ={this.props.changeList} >AI</Button>
                         <Button onClick ={this.props.changeList} >AO</Button>
                         <Button danger onClick ={this.props.changeList}>移除最后一项</Button>
-                        <Button danger onClick ={this.props.changeList}>清空</Button>
+                        <Button danger onClick ={this.props.changeList}>清空</Button> */}
                     </Space>
                 </div>
                 <div style={{Display:'flex'}}>
-                    <Display list={this.props.list} info={this.props.info}/>
+                    <Display list={this.props.list} info={this.props.info} selectImg={this.props.selectImg}/>
 
-                </div>
-                
+                </div>      
             </div>
               
         )

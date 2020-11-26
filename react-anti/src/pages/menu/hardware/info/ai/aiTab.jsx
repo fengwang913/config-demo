@@ -1,4 +1,4 @@
-import React,{ useState}  from 'react';
+import React,{ useState,useEffect}  from 'react';
 import { Table,InputNumber, Popconfirm, Form } from 'antd';
 import { Select } from 'antd';
 
@@ -58,15 +58,15 @@ const EditableCell = ({
 //
 const AiTable = (props) => {
   const [form] = Form.useForm();
-
+  const info = props.info
   const [data, setData] = useState(props.info);
   const [editingKey, setEditingKey] = useState('');
-  console.log('此时的data是多少呢？',data)
-  
-
   const isEditing = (record) => record.key === editingKey;
 
-  console.log('此时的editingKey是多少呢？',editingKey)
+  useEffect(() =>{
+    setData(info)
+})
+
 
   const edit = (record) => {
     form.setFieldsValue({

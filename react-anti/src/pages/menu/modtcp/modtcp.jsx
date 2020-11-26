@@ -1,6 +1,7 @@
 import React,{ Component }  from 'react';
 
-import NetSelect from './tabs'
+// import NetSelect from './tabs'
+import NetWork01 from './network1';
 
 
 
@@ -9,8 +10,10 @@ export default class ModTCP extends Component{
 
         return(
             <div>
-                <NetSelect />
-
+                <div style={{fontSize:'20px'}} >
+                   ModTCP-Master
+                </div>
+                <NetWork01 />
             </div>
             
         )
