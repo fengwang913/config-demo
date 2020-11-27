@@ -14,7 +14,7 @@ export default class Cpu extends Component{
         const info = this.props.info
 
         return(
-            <div style={{margin:'10px'}}>
+            <div style={{margin:'10px',paddingBottom:'10px'}}>
                 <div style={{fontSize:'22px'}}>
                     CPU配置信息
                 </div>

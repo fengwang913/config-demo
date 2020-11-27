@@ -302,7 +302,7 @@ export default class TermSer extends Component{
     uploadList =() =>{
         let list = ['CPU','AO','AI']
         let info = this.state.infoData
-        let nowDate =[]
+        let currentD =[]
         
         list.map((item ) => {
             if(item === 'CPU'){
@@ -310,6 +310,7 @@ export default class TermSer extends Component{
                     key:'1',
                     index:1,
                     type:'DI',
+                    time:'33 ms',
                     SOE:'超上限',
                     SOERange:'7',
                     SOEUpper:'28',
@@ -318,6 +319,7 @@ export default class TermSer extends Component{
                     key:'2',
                     index:2,
                     type:'DI',
+                    time:'33 ms',
                     SOE:'超上限',
                     SOERange:'7',
                     SOEUpper:'28',
@@ -326,6 +328,7 @@ export default class TermSer extends Component{
                     key:'3',
                     index:3,
                     type:'DI',
+                    time:'33 ms',
                     SOE:'超上限',
                     SOERange:'7',
                     SOEUpper:'28',
@@ -334,6 +337,7 @@ export default class TermSer extends Component{
                     key:'4',
                     index:4,
                     type:'DI',
+                    time:'33 ms',
                     SOE:'超上限',
                     SOERange:'7',
                     SOEUpper:'28',
@@ -342,6 +346,7 @@ export default class TermSer extends Component{
                     key:'5',
                     index:5,
                     type:'DI',
+                    time:'33 ms',
                     SOE:'超上限',
                     SOERange:'7',
                     SOEUpper:'28',
@@ -350,6 +355,7 @@ export default class TermSer extends Component{
                     key:'6',
                     index:6,
                     type:'DI',
+                    time:'33 ms',
                     SOE:'超上限',
                     SOERange:'7',
                     SOEUpper:'28',
@@ -358,6 +364,7 @@ export default class TermSer extends Component{
                     key:'7',
                     index:7,
                     type:'DI',
+                    time:'33 ms',
                     SOE:'超上限',
                     SOERange:'7',
                     SOEUpper:'28',
@@ -367,6 +374,7 @@ export default class TermSer extends Component{
                     index:8,
                     type:'DI',
                     SOE:'超上限',
+                    time:'33 ms',
                     SOERange:'7',
                     SOEUpper:'28',
                     SOELower:'21'
@@ -374,6 +382,7 @@ export default class TermSer extends Component{
                     key:'9',
                     index:9,
                     type:'DI',
+                    time:'33 ms',
                     SOE:'超上限',
                     SOERange:'7',
                     SOEUpper:'28',
@@ -382,6 +391,7 @@ export default class TermSer extends Component{
                     key:'10',
                     index:10,
                     type:'DI',
+                    time:'33 ms',
                     SOE:'超上限',
                     SOERange:'7',
                     SOEUpper:'28',
@@ -391,6 +401,7 @@ export default class TermSer extends Component{
                     index:11,
                     type:'DI',
                     SOE:'超上限',
+                    time:'33 ms',
                     SOERange:'7',
                     SOEUpper:'28',
                     SOELower:'21'
@@ -398,6 +409,7 @@ export default class TermSer extends Component{
                     key:'12',
                     index:12,
                     type:'DI',
+                    time:'33 ms',
                     SOE:'超上限',
                     SOERange:'7',
                     SOEUpper:'28',
@@ -406,6 +418,7 @@ export default class TermSer extends Component{
                     key:'13',
                     index:1,
                     type:'DO',
+                    time:'33 ms',
                     SOE:'超上限',
                     SOERange:'7',
                     SOEUpper:'28',
@@ -414,6 +427,7 @@ export default class TermSer extends Component{
                     key:'14',
                     index:2,
                     type:'DO',
+                    time:'33 ms',
                     SOE:'超上限',
                     SOERange:'7',
                     SOEUpper:'28',
@@ -422,6 +436,7 @@ export default class TermSer extends Component{
                     key:'15',
                     index:3,
                     type:'DO',
+                    time:'33 ms',
                     SOE:'超上限',
                     SOERange:'7',
                     SOEUpper:'28',
@@ -430,6 +445,7 @@ export default class TermSer extends Component{
                     key:'16',
                     index:4,
                     type:'DO',
+                    time:'33 ms',
                     SOE:'超上限',
                     SOERange:'7',
                     SOEUpper:'28',
@@ -438,6 +454,7 @@ export default class TermSer extends Component{
                     key:'17',
                     index:1,
                     type:'AI',
+                    time:'33 ms',
                     SOE:'超上限',
                     SOERange:'7',
                     SOEUpper:'28',
@@ -446,6 +463,7 @@ export default class TermSer extends Component{
                     key:'18',
                     index:2,
                     type:'AI',
+                    time:'33 ms',
                     SOE:'超上限',
                     SOERange:'7',
                     SOEUpper:'28',
@@ -454,6 +472,7 @@ export default class TermSer extends Component{
                     key:'19',
                     index:3,
                     type:'AI',
+                    time:'33 ms',
                     SOE:'超上限',
                     SOERange:'7',
                     SOEUpper:'28',
@@ -462,6 +481,7 @@ export default class TermSer extends Component{
                     key:'20',
                     index:4,
                     type:'AI',
+                    time:'33 ms',
                     SOE:'超上限',
                     SOERange:'7',
                     SOEUpper:'28',
@@ -470,6 +490,7 @@ export default class TermSer extends Component{
                     key:'21',
                     index:5,
                     type:'AI',
+                    time:'33 ms',
                     SOE:'超上限',
                     SOERange:'7',
                     SOEUpper:'28',
@@ -478,51 +499,60 @@ export default class TermSer extends Component{
                     key:'22',
                     index:6,
                     type:'AI',
+                    time:'33 ms',
                     SOE:'超上限',
                     SOERange:'7',
                     SOEUpper:'28',
                     SOELower:'21'
                 }
             ]
-            nowDate.push(cpuInfo)
+
+           
+                
+            currentD.push(cpuInfo)
+           
             }
             if(item === 'AO'){
                 let aoInfo = [{
-                    key:'22',
+                    key:'23',
                     index:1,
+                    time:'33 ms',
                     SOE:'超上限',
                     SOERange:'12',
                     SOEUpper:'24',
                     SOELower:'12',
                     fault:'23'
                 }]
-                nowDate.push(aoInfo)
+                currentD.push(aoInfo)
             }
             if(item === 'AI'){
                 let aiInfo = [{
-                    key:'23',
+                    key:'24',
                     index:1,
+                    time:'33 ms',
                     SOE:'超上限',
                     SOERange:'7',
                     SOEUpper:'28',
                     SOELower:'21'
                 },{
-                    key:'24',
+                    key:'25',
                     index:2,
+                    time:'33 ms',
                     SOE:'超下限',
                     SOERange:'12',
                     SOEUpper:'232',
                     SOELower:'21'
                 },{
-                    key:'25',
+                    key:'26',
                     index:3,
+                    time:'33 ms',
                     SOE:' 恢复',
                     SOERange:'87',
                     SOEUpper:'65',
                     SOELower:'21'
                 },]
 
-                nowDate.push(aiInfo)
+                currentD.push(aiInfo)
             }
             
         })
@@ -553,8 +583,11 @@ export default class TermSer extends Component{
             }
             this.setState({show:[show]})   
         }
-        let currentInfo =nowDate[0]
-        this.setState({currentInfo:[...currentInfo],list:[...list],infoData:[...info,...nowDate]})
+        let currentInfo =currentD[0]
+        this.setState({currentInfo:[...currentInfo],list:[...list],infoData:[...info,...currentD]})
+
+
+
 
 
 

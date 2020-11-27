@@ -77,6 +77,7 @@ const CpuTable = (props) => {
   const edit = (record) => {
     form.setFieldsValue({
         index:'',
+        time:'',
         type:'',
         SOE:'',
         SOERange:'',
@@ -124,7 +125,13 @@ const CpuTable = (props) => {
     {
         title: '通道类型',
         dataIndex:'type',
-        width: '25%',
+        width: '10%',
+        editable: true,
+      },
+      {
+        title: '滤波时间',
+        dataIndex:'time',
+        width: '10%',
         editable: true,
       },
     {

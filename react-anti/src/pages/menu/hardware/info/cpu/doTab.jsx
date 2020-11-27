@@ -1,6 +1,7 @@
-import React,{ useState,useEffect}  from 'react';
+import React,{ useState ,useEffect }  from 'react';
 import { Table,InputNumber, Popconfirm, Form } from 'antd';
 import { Select } from 'antd';
+// import Info from '../info';
 
 
 const { Option } = Select;
@@ -56,21 +57,24 @@ const EditableCell = ({
 
 
 //
-const AiTable = (props) => {
+const DoTable = (props) => {
   const [form] = Form.useForm();
-  const info = props.info
+  const info = props.info;
   const [data, setData] = useState(props.info);
   const [editingKey, setEditingKey] = useState('');
-  const isEditing = (record) => record.key === editingKey;
 
   useEffect(() =>{
-    setData(info)
-})
+      setData(info)
+  })
+  
+
+  const isEditing = (record) => record.key === editingKey;
 
 
   const edit = (record) => {
     form.setFieldsValue({
         index:'',
+        type:'',
         time:'',
         SOE:'',
         SOERange:'',
@@ -111,38 +115,44 @@ const AiTable = (props) => {
   const columns = [
     {
       title: '序号',
-      dataIndex: 'index',
+      dataIndex:'index',
       width: '10%',
       editable: false,
     },
     {
-      title: '滤波时间',
-      dataIndex:'time',
-      width: '10%',
-      editable: true,
-    },
+        title: '通道类型',
+        dataIndex:'type',
+        width: '10%',
+        editable: true,
+      },
+      {
+        title: '滤波时间',
+        dataIndex:'time',
+        width: '10%',
+        editable: true,
+      },
     {
       title: 'SOE事件',
-      dataIndex: 'SOE',
+      dataIndex:'SOE',
       width: '15%',
       editable: true,
     },
     
       {
         title: 'SOE滞回区间',
-        dataIndex: 'SOERange',
+        dataIndex:'SOERange',
         width: '15%',
         editable: true,
       },
       {
         title: 'SOE上限',
-        dataIndex: 'SOEUpper',
+        dataIndex:'SOEUpper',
         width: '15%',
         editable: true,
       },
       {
         title: 'SOE下限',
-        dataIndex: 'SOELower',
+        dataIndex:'SOELower',
         width: '15%',
         editable: true,
       },
@@ -208,14 +218,14 @@ const AiTable = (props) => {
         columns={mergedColumns}
         rowClassName="editable-row"
         pagination={false}
-        scroll={{x:'true'}}
+        croll={{y:'true'}}
       />
     </Form>
   );
 };
 
 
-export default AiTable;
+export default DoTable;
 
 
 

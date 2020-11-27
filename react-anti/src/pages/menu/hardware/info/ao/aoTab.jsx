@@ -72,6 +72,7 @@ const AoTable = (props) => {
   const edit = (record) => {
     form.setFieldsValue({
         index:'',
+        time:'',
         SOE:'',
         SOERange:'',
         SOEUpper:'',
@@ -117,9 +118,15 @@ const AoTable = (props) => {
       editable: false,
     },
     {
+      title: '滤波时间',
+      dataIndex:'time',
+      width: '10%',
+      editable: true,
+    },
+    {
       title: 'SOE事件',
       dataIndex: 'SOE',
-      width: '25%',
+      width: '15%',
       editable: true,
     },
     
