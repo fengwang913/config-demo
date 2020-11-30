@@ -58,12 +58,11 @@ const EditableCell = ({
 //
 const EditableTable = (props) => {
   const [form] = Form.useForm();
-  console.log('RTU里面的props数据类型是什么样的呢？',props)
-  console.log('RTU里面的props.originData数据类型是什么样的呢？',props.originData)
+
 
   const [data, setData] = useState(props.originData);
   const [editingKey, setEditingKey] = useState('');
-  console.log('RTU里面的数据类型是什么样的呢？',data)
+
 
   const isEditing = (record) => record.key === editingKey;
 
@@ -161,9 +160,17 @@ const EditableTable = (props) => {
             </Popconfirm>
           </span>
         ) : (
-          <a disabled={editingKey !== ''} onClick={() => edit(record)}>
-            编辑
-          </a>
+          <div>
+              <a disabled={editingKey !== ''} onClick={() => edit(record)}>
+              编辑
+            </a>
+            <a disabled={editingKey !== ''} style={{marginLeft:'15px',marginRight:'15px'}} >
+              添加
+            </a>
+            <a disabled={editingKey !== ''} style={{color:'red'}} >
+              删除
+            </a>
+        </div>
         );
       },
     },

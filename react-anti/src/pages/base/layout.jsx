@@ -32,7 +32,7 @@ class SiderDemo extends React.Component {
 
   render() {
     return (
-      <Layout style={{height:'94vh'}}>
+      <Layout style={{minHeight:'94vh'}}>
         <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
           <div className="logo" />
           <Left />
@@ -42,7 +42,7 @@ class SiderDemo extends React.Component {
           <Header className="site-layout-background" 
                   style={{ padding: 0 ,
                     backgroundColor:'white',
-                    position: 'fixed',
+                    // position: 'fixed',
                     width:'100%',
                     zIndex:5
                    }}>
@@ -54,7 +54,7 @@ class SiderDemo extends React.Component {
           <Content
             className="site-layout-background"
             style={{
-              margin: '70px 50px',
+              margin: '20px 50px',
               padding: 5,
               minHeight: 280,
             }}

@@ -77,12 +77,13 @@ const CpuTable = (props) => {
   const edit = (record) => {
     form.setFieldsValue({
         index:'',
-        time:'',
-        type:'',
+        num:'',
+        // time:'',
+        // type:'',
         SOE:'',
-        SOERange:'',
-        SOEUpper:'',
-        SOELower:'',
+        // SOERange:'',
+        // SOEUpper:'',
+        // SOELower:'',
       ...record,
     });
     setEditingKey(record.key);
@@ -125,13 +126,19 @@ const CpuTable = (props) => {
     {
         title: '通道类型',
         dataIndex:'type',
-        width: '10%',
+        width: '15%',
         editable: true,
       },
+      // {
+      //   title: '滤波次数',
+      //   dataIndex:'num',
+      //   width: '10%',
+      //   editable: true,
+      // },
       {
         title: '滤波时间',
         dataIndex:'time',
-        width: '10%',
+        width: '15%',
         editable: true,
       },
     {
@@ -141,24 +148,24 @@ const CpuTable = (props) => {
       editable: true,
     },
     
-      {
-        title: 'SOE滞回区间',
-        dataIndex:'SOERange',
-        width: '15%',
-        editable: true,
-      },
-      {
-        title: 'SOE上限',
-        dataIndex:'SOEUpper',
-        width: '15%',
-        editable: true,
-      },
-      {
-        title: 'SOE下限',
-        dataIndex:'SOELower',
-        width: '15%',
-        editable: true,
-      },
+    //   {
+    //     title: 'SOE滞回区间',
+    //     dataIndex:'SOERange',
+    //     width: '15%',
+    //     editable: true,
+    //   },
+    //   {
+    //     title: 'SOE上限',
+    //     dataIndex:'SOEUpper',
+    //     width: '15%',
+    //     editable: true,
+    //   },
+    //   {
+    //     title: 'SOE下限',
+    //     dataIndex:'SOELower',
+    //     width: '15%',
+    //     editable: true,
+    //   },
     {
       title: '操作',
       dataIndex: 'operation',
@@ -180,9 +187,20 @@ const CpuTable = (props) => {
             </Popconfirm>
           </span>
         ) : (
-          <a disabled={editingKey !== ''} onClick={() => edit(record)}>
-            编辑
-          </a>
+          <div>
+             <a disabled={editingKey !== ''} onClick={() => edit(record)}>
+              编辑
+            </a>
+            <a disabled={editingKey !== ''} style={{marginLeft:'15px',marginRight:'15px'}} >
+              添加
+            </a>
+            <a disabled={editingKey !== ''} style={{color:'red'}} >
+              删除
+            </a>
+          </div>
+         
+          
+          
         );
       },
     },

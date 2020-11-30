@@ -19,7 +19,7 @@ const EditableCell = ({
   ...restProps
 }) => {
  
-  const inputNode =inputType === 'funcCode' ? <Select style={{ width: 180 }}>
+  const inputNode =inputType === 'funcCode' ? <Select style={{ width: 100 }}>
                                                   <Option value="Read Coils"> Read Coils</Option>
                                                   <Option value="Read Discreate Inputs"> Read Discreate Inputs</Option>
                                                   <Option value="Read Holding Registers"> Read Holding Registers</Option>

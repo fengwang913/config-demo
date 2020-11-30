@@ -92,7 +92,7 @@ class Left extends React.Component {
             // onOpenChange={this.onOpenChange}
             selectedKeys={this.leftMenuHighLight()}
             defaultSelectedKeys={['/']}
-            // defaultOpenKeys={['sub1']}
+            defaultOpenKeys={['sub1']}
             mode="inline"
             theme="dark"
         >
@@ -114,16 +114,16 @@ class Left extends React.Component {
             <Menu.Item key="ModbusTCP-Master" icon={<MailOutlined />}>
                 ModbusTCP-Master
             </Menu.Item>
-            <Menu.Item key="termialserver" icon={<ContainerOutlined />}>
+            {/* <Menu.Item key="termialserver" icon={<ContainerOutlined />}>
                 Terminal Server 
-            </Menu.Item>
+            </Menu.Item> */}
             <SubMenu  key="sub2" icon={<UploadOutlined />} title="MQTT">
                   <Menu.Item key="broker1">Broker1</Menu.Item>
                   <Menu.Item key="broker2">Broker2</Menu.Item>
             </SubMenu >
-            <Menu.Item key="zigbee" icon={<ContainerOutlined />}>
+            {/* <Menu.Item key="zigbee" icon={<ContainerOutlined />}>
                  Zigbee
-            </Menu.Item>
+            </Menu.Item> */}
             <Menu.Item key="devicerealtime" icon={<ContainerOutlined />}>
                  Device Realtime Status 
             </Menu.Item>

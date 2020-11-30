@@ -134,26 +134,26 @@ const AiTable = (props) => {
     {
       title: 'SOE事件',
       dataIndex:'SOE',
-      width: '15%',
+      width: '10%',
       editable: true,
     },
     
       {
         title: 'SOE滞回区间',
         dataIndex:'SOERange',
-        width: '15%',
+        width: '10%',
         editable: true,
       },
       {
         title: 'SOE上限',
         dataIndex:'SOEUpper',
-        width: '15%',
+        width: '10%',
         editable: true,
       },
       {
         title: 'SOE下限',
         dataIndex:'SOELower',
-        width: '15%',
+        width: '10%',
         editable: true,
       },
     {
@@ -177,9 +177,18 @@ const AiTable = (props) => {
             </Popconfirm>
           </span>
         ) : (
+          <div>
           <a disabled={editingKey !== ''} onClick={() => edit(record)}>
-            编辑
-          </a>
+           编辑
+         </a>
+         <a disabled={editingKey !== ''} style={{marginLeft:'15px',marginRight:'15px'}} >
+           添加
+         </a>
+         <a disabled={editingKey !== ''} style={{color:'red'}} >
+           删除
+         </a>
+       </div>
+      
         );
       },
     },

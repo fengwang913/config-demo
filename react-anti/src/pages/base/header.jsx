@@ -6,13 +6,14 @@ export default class Header extends Component{
 
     render(){
         return(
-            <div style={{display:'flex'}}>
+            <div style={{display:'flex',backgroundColor:'black',}}>
                 <div style={ {
                             width :'100vw',
                             height:'6vh',
                             fontSize:'25px',
                             // textAlign:"center",
-                            backgroundColor:'#282c34',
+                            // backgroundColor:'#282c34',
+                           
                             color:'white',
                         } }>
                             <div style={{marginLeft:'10px'}}> 
